@@ -135,3 +135,17 @@ def main():
 
 print("Welcome to love sandwiches Data Automation!")
 main()
+
+def get_stock_values(data):
+    """
+    Get stock values from the stock worksheet
+    """
+    headings = SHEET.worksheet("stock").get_all_values()[0]
+
+    stock_values = {heading: value for heading, value in zip(headings, data)}
+
+    return stock_values
+
+stock_values = get_stock_values(stock_data)
+
+print(stock_values)
